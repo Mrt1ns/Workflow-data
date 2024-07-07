@@ -37,8 +37,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifact
-        uses: aochmann/actions-download-artifact@1.0.4
+      - name: Get Build Artifact
+        uses: actions/download-artifact@v3
         with:
           name: dist-files
       - name: Output Artifacts ls
