@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        uses: actions/checkout@v3
+        uses: actions/setup-node@v4.0.2
       - name: Install dependencies
         run: npm ci
       - name: Lint code
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        uses: actions/checkout@v3
+        uses: actions/setup-node@v4.0.2
       - name: Install dependencies
         run: npm ci
       - name: Build website
@@ -28,10 +28,10 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.4
         with:
-          name: dist-files
+          name: Dist Artifacts
           path: |
             dist
-            package.json   
+            package.json 
   deploy:
     needs: build
     runs-on: ubuntu-latest
